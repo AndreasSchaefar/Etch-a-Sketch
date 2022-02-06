@@ -1,0 +1,21 @@
+body {
+    background-color: #ccc;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-flow: row wrap;
+    /*
+    flex-direction: column;
+    gap: 16px;*/
+}
+
+.grid {
+    display: flex;
+    border: solid black;
+    width: 500px;
+    height: 500px;;
+}
