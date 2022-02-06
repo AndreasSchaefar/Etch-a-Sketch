@@ -19,3 +19,9 @@ body {
     width: 500px;
     height: 500px;;
 }
+
+.cell {
+    background-color: lightsalmon;
+    box-sizing: border-box;
+    border: solid black;
+}

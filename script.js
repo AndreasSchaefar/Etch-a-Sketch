@@ -1,22 +1,23 @@
-let cols = 40;
-let rows = 40;
-let cellsNum = rows * cols;
+let cols = 16;
+let rows = 16;
 let grid = document.querySelector(".grid")
 let gridHeight = getElementHeightInPixels(grid);
 let gridWidth = getElementWidthInPixels(grid);
-let gridArea = gridHeight * gridWidth;
-let cellSide = Math.sqrt(gridArea/cellsNum);
+
 
 
 function createGrid() {
+    while ( grid.firstChild ) grid.removeChild(grid.firstChild); // If there are cells in grid, delete them to create new ones
+    let cellsNum = rows * cols;
+    let gridArea = gridHeight * gridWidth;
+    let cellSide = Math.sqrt(gridArea/cellsNum);
     for (let i=0; i<rows; i++) {
         let row = document.createElement("div");
         for (let j=0; j<cols; j++) {
             let cell = document.createElement("div");
             cell.className = "cell";
-            cell.style.backgroundColor = "lightsalmon";
             cell.style.width = cellSide + "px";
-            cell.style.height = cellSide + "px"; 
+            cell.style.height = cellSide + "px";
             row.appendChild(cell);
         };
         grid.appendChild(row);
