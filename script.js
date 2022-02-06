@@ -1,10 +1,14 @@
 let cols = 16;
 let rows = 16;
-let grid = document.querySelector(".grid")
+let grid = document.querySelector(".grid");
+let drawButton = document.querySelector(".draw");
+let eraseButton = document.querySelector(".erase");
+let setBoxAmountButton = document.querySelector(".set-box");
 let gridHeight = getElementHeightInPixels(grid);
 let gridWidth = getElementWidthInPixels(grid);
-
-
+drawButton.addEventListener("click", startDrawing);
+eraseButton.addEventListener("click", erase);
+setBoxAmountButton.addEventListener("click", setNewGrid);
 
 function createGrid() {
     while ( grid.firstChild ) grid.removeChild(grid.firstChild); // If there are cells in grid, delete them to create new ones
@@ -63,6 +67,15 @@ function getElementHeightInPixels(element) {
     res = Number(getComputedStyle(element).height.replace("px", ""));
     return res;
 };
+
+
+function setNewGrid() {
+    let sideSize = prompt("What number of boxes do you want one side to be?");
+    cols = sideSize;
+    rows = sideSize;
+    createGrid();
+};
+
 
 
 
