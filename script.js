@@ -41,12 +41,19 @@ function startDrawing() {
     cells.forEach(element => {
         element.addEventListener("mouseover", colorCell);
     });
+    drawButton.removeEventListener("click", startDrawing);
+    drawButton.textContent = "Stop Drawing";
+    drawButton.addEventListener("click", stopDrawing);
+
 };
 
 function stopDrawing() {
     cells.forEach(element => {
         element.removeEventListener("mouseover", colorCell);
     });
+    drawButton.removeEventListener("click", stopDrawing);
+    drawButton.textContent = "Draw";
+    drawButton.addEventListener("click", startDrawing);
 };
 
 
@@ -71,12 +78,16 @@ function getElementHeightInPixels(element) {
 
 function setNewGrid() {
     let sideSize = prompt("What number of boxes do you want one side to be?");
+    if (sideSize > 100) {
+        alert("Maximum amount of boxes is 100");
+        return;
+    }
     cols = sideSize;
     rows = sideSize;
     createGrid();
+    cells = Array.from(document.querySelectorAll(".cell"));
+    cell = grid.querySelector(".cell");
 };
-
-
 
 
 createGrid();

@@ -13,13 +13,11 @@ body {
 
 .grid {
     display: flex;
-    border: solid black;
-    width: 500px;
-    height: 500px;;
+    width: 400px;
+    height: 400px;
 }
 
 .cell {
     background-color: lightsalmon;
     box-sizing: border-box;
-    border: solid black;
 }
